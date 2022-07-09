@@ -17,16 +17,30 @@
       </p>
       <p>{{ answer }}</p>
     </div>
+
+    <button @click='toVue'>vue面经</button>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  setup(){
+    const router = useRouter();
+    const toVue = (()=>{
+      router.push({
+        path:'vueq'
+      })
+    })
+    return {
+      toVue
+    }
   },
   data(){
     return {
